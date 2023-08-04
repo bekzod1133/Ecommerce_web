@@ -1,0 +1,21 @@
+{% extends 'product/bace.html'%}
+{%block content %}
+{% for product in products %}
+<div class="feature-item mb-5 mb-lg-0">
+            <div class="feature-icon mb-4">
+              <i class="icofont-surgeon-alt"></i>
+            </div>
+    <hr>
+            <img src="{{product.image.url}}" width="400px" height="200px" >
+    <br>
+            <h2><span>{{product.name}}</span></h2>
+            <h5 class="mb-3">{{product.date_add}} </h5>
+            <p  class="mb-4">{{product.price}} </p>
+            <p  class="mb-4">{{product.disc}} </p>
+
+            <a class="nav-link active" aria-current="page" href=" {% url 'product:base' product.pk %}">Viev </a>
+            <a class="nav-link active" aria-current="page" href=" {% url 'product:base' product.pk %}">Add to </a>
+    <hr>
+          </div>
+{% endfor %}
+{% endblock %}

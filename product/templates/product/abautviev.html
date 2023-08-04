@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+{% extends 'product/bace.html'%}
+{%block content %}
+
+<div class="feature-item mb-5 mb-lg-0">
+            <div class="feature-icon mb-4">
+              <i class="icofont-surgeon-alt"></i>
+            </div>
+    <hr>
+            <img src="{{product.image.url}}" width="400px" height="200px" >
+    <br>
+            <h2><span>{{product.name}}</span></h2>
+            <h5 class="mb-3">{{product.desc}}</h5>
+            <h5 class="mb-3">{{product.date_add}}</h5>
+            <p class="mb-4">{{product.price}}</p>
+            <p class="mb-4">{{product.disc}}</p>
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+    {{cart_product_form}}
+    {% csrf_token %}
+    <input type="submit" value="Add to cart">
+</form>
+    <hr>
+          </div>
+
+{% endblock %}
+
+</body>
+</html>
+
